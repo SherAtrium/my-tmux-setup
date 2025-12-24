@@ -1,6 +1,3 @@
-## ✅ `KEYMAPS.md`
-
-```md
 # 📄 tmux Keymaps Overview
 
 This document describes the **tmux keybindings** used in this setup.
@@ -149,4 +146,3 @@ Pane navigation is handled by **vim-tmux-navigator**.
 
 - tmux always starts with **fish** as the default shell
 - Statusline shows the active command or shell (e.g. `fish`, `zsh`, `nvim`)
-```
