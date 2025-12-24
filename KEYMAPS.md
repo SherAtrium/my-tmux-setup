@@ -1,9 +1,12 @@
+## ✅ `KEYMAPS.md`
+
+```md
 # 📄 tmux Keymaps Overview
 
 This document describes the **tmux keybindings** used in this setup.
 
 The configuration is designed to work **alongside Neovim**, not replace it.  
-tmux handles **sessions, windows, and panes**, while **Neovim handles editing and navigation inside files**.
+tmux handles **sessions, windows, panes, and layout**, while **Neovim handles editing and navigation inside files**.
 
 ---
 
@@ -13,7 +16,8 @@ tmux handles **sessions, windows, and panes**, while **Neovim handles editing an
 - Neovim-first workflow
 - Zero keybinding conflicts
 - Minimal overrides
-- Defaults are kept **only if they are useful**
+- Defaults are kept **only when useful**
+- tmux sessions are **ephemeral** (no auto save / restore)
 
 ---
 
@@ -46,23 +50,21 @@ tmux handles **sessions, windows, and panes**, while **Neovim handles editing an
 
 ## 🧩 Panes (Splits)
 
-| Key           | Action                               |
-| ------------- | ------------------------------------ |
-| `prefix + \|` | Vertical split (current directory)   |
-| `prefix + -`  | Horizontal split (current directory) |
-| `prefix + q`  | Close current pane                   |
-| `prefix + z`  | Zoom / unzoom pane                   |
+| Key          | Action                               |
+| ------------ | ------------------------------------ | ---------------------------------- |
+| `prefix +    | `                                    | Vertical split (current directory) |
+| `prefix + -` | Horizontal split (current directory) |
+| `prefix + q` | Close current pane                   |
+| `prefix + z` | Zoom / unzoom pane                   |
 
 ---
 
-## 🔀 Pane Movement (Reordering)
+## 🔀 Pane Reordering (Defaults)
 
-| Key          | Action                           |
-| ------------ | -------------------------------- |
-| `prefix + {` | Move pane left _(default tmux)_  |
-| `prefix + }` | Move pane right _(default tmux)_ |
-
-> Useful for rearranging layouts without recreating panes.
+| Key          | Action          |
+| ------------ | --------------- |
+| `prefix + {` | Move pane left  |
+| `prefix + }` | Move pane right |
 
 ---
 
@@ -101,8 +103,6 @@ Pane navigation is handled by **vim-tmux-navigator**.
 | `y`          | Yank selection and exit          |
 | `q`          | Exit copy mode _(default tmux)_  |
 
-> Copy mode uses **vim-style keys** (`mode-keys vi`).
-
 ---
 
 ## 🗂 Sessions
@@ -113,15 +113,17 @@ Pane navigation is handled by **vim-tmux-navigator**.
 | `prefix + d` | Detach from session  |
 | `prefix + X` | Kill current session |
 
+> Session persistence is intentionally **disabled**.
+
 ---
 
-## 🔌 Plugins (tmux)
+## 🔌 Plugin Management (TPM)
 
-| Key                | Action                                  |
-| ------------------ | --------------------------------------- |
-| `prefix + I`       | Install plugins (TPM) _(default)_       |
-| `prefix + U`       | Update plugins (TPM) _(default)_        |
-| `prefix + Alt + u` | Remove unused plugins (TPM) _(default)_ |
+| Key                | Action                |
+| ------------------ | --------------------- |
+| `prefix + I`       | Install plugins       |
+| `prefix + U`       | Update plugins        |
+| `prefix + Alt + u` | Remove unused plugins |
 
 ---
 
@@ -135,14 +137,16 @@ Pane navigation is handled by **vim-tmux-navigator**.
 
 ---
 
-## 🧩 Defaults Intentionally Kept
+## 📂 Working Directory Behavior
 
-The following default tmux behaviors are **kept intentionally**:
+- New panes and windows always open in the **current pane directory**
+- Avoids falling back to `$HOME`
+- Designed for project-based workflows
 
-- Window number selection: `prefix + 0–9`
-- Copy mode entry: `prefix + [`
-- Paste buffer: `prefix + ]`
-- Pane reordering: `prefix + {` / `prefix + }`
-- Rename window: `prefix + $`
-- Focus next window: `prefix + o`
-- Help & command prompt
+---
+
+## 🐚 Shell
+
+- tmux always starts with **fish** as the default shell
+- Statusline shows the active command or shell (e.g. `fish`, `zsh`, `nvim`)
+```
