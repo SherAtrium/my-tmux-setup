@@ -2,7 +2,7 @@
 
 This document describes the **tmux keybindings** used in this setup.
 
-The configuration is designed to work **alongside Neovim**, not replace it.  
+The configuration is designed to work **alongside Neovim**.
 tmux handles **sessions, windows, panes, and layout**, while **Neovim handles editing and navigation inside files**.
 
 ---
@@ -20,10 +20,9 @@ tmux handles **sessions, windows, panes, and layout**, while **Neovim handles ed
 
 ## 🔑 Prefix
 
-| Key             | Description                          |
-| --------------- | ------------------------------------ |
-| `Ctrl-a`        | tmux leader / prefix                 |
-| `Ctrl-a Ctrl-a` | Send literal `Ctrl-a` to application |
+| Key      | Description          |
+| -------- | -------------------- |
+| `Ctrl-a` | tmux leader / prefix |
 
 > Default `Ctrl-b` is unbound.
 
@@ -47,12 +46,12 @@ tmux handles **sessions, windows, panes, and layout**, while **Neovim handles ed
 
 ## 🧩 Panes (Splits)
 
-| Key          | Action                               |
-| ------------ | ------------------------------------ | ---------------------------------- |
-| `prefix +    | `                                    | Vertical split (current directory) |
-| `prefix + -` | Horizontal split (current directory) |
-| `prefix + q` | Close current pane                   |
-| `prefix + z` | Zoom / unzoom pane                   |
+| Key           | Action                               |
+| ------------- | ------------------------------------ |
+| `prefix + \|` | Vertical split (current directory)   |
+| `prefix + -`  | Horizontal split (current directory) |
+| `prefix + q`  | Close current pane                   |
+| `prefix + z`  | Zoom / unzoom pane                   |
 
 ---
 
